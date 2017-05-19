@@ -172,12 +172,13 @@ func getIndexName(esConf *ElasticsearchConf) string {
 func getMapping(datum analytics.AnalyticsRecord, extendedStatistics bool) map[string]interface{} {
 	record := datum
 
-	mapping := map[string]interface{}{
+	mapping := map[string]interface{} {
 		"@timestamp":      record.TimeStamp,
 		"http_method":     record.Method,
 		"request_uri":     record.Path,
 		"response_code":   record.ResponseCode,
 		"ip_address":      record.IPAddress,
+		"alias":           record.Alias,
 		"api_key":         record.APIKey,
 		"api_version":     record.APIVersion,
 		"api_name":        record.APIName,
